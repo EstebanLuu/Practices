@@ -1,0 +1,44 @@
+.form__sub__container {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form__sub {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 10px;
+  input {
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    padding: 5px;
+    width: 100%;
+    &:focus {
+      outline: none;
+    }
+  }
+  textarea {
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    padding: 5px;
+    width: 100%;
+    resize: none;
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.form__sub__button {
+  width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  padding: 4px 4px;
+  margin: 2px 0;
+  background-color: #fff;
+}
