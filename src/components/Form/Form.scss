@@ -4,6 +4,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border-radius: 10px;
 }
 
 .form__sub {
@@ -15,9 +16,10 @@
   margin-bottom: 10px;
   input {
     border: 1px solid #ccc;
-    border-radius: 2px;
+    border-radius: 5px;
     padding: 5px;
-    width: 100%;
+    margin-bottom: 5px;
+    width: 80%;
     &:focus {
       outline: none;
     }
@@ -26,7 +28,8 @@
     border: 1px solid #ccc;
     border-radius: 2px;
     padding: 5px;
-    width: 100%;
+    width: 80%;
+    margin-bottom: 10px;
     resize: none;
     &:focus {
       outline: none;
@@ -34,11 +37,31 @@
   }
 }
 
-.form__sub__button {
+.form__sub__button-clear {
   width: 200px;
   border: 1px solid #ccc;
-  border-radius: 2px;
+  border-radius: 5px;
   padding: 4px 4px;
   margin: 2px 0;
   background-color: #fff;
+  &:hover {
+    color: rgb(25, 25, 67);
+    background-color: #fff;
+    border: 1px solid rgb(0, 0, 0);
+  }
+}
+
+.form__sub__button-create {
+  width: 200px;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 5px;
+  padding: 4px 4px;
+  margin: 2px 0;
+  background-color: #455068;
+  color: #fff;
+  transition: 0.3s;
+  &:hover {
+    color: rgb(204, 204, 204);
+    border: 1px solid rgb(255, 255, 255);
+  }
 }

@@ -1,30 +1,23 @@
+import useNewPerson from "@/hooks/NewPerson";
 import { Sub } from "@/types";
-import React, { SetStateAction, useState } from "react";
+import React, { SetStateAction, useReducer, useState } from "react";
 import "./Form.scss";
-
-interface FormState {
-  inputValues: Sub;
-}
 
 interface FormProps {
   onNewSub: (newSub: Sub) => void;
 }
 
 const Form = ({ onNewSub }: FormProps) => {
-  const [inputValues, setInputValues] = useState<FormState["inputValues"]>({
-    nick: "",
-    subMonths: 0,
-    avatar: "",
-    description: "",
-  });
+  // const [inputValues, setInputValues] =
+  //   useState<FormState["inputValues"]>(INITIAL_STATE);
+
+  const [inputValues, dispatch] = useNewPerson();
 
   const handleClear = () => {
-    setInputValues({
-      nick: "",
-      subMonths: 0,
-      avatar: "",
-      description: "",
+    dispatch({
+      type: "clear",
     });
+    // setInputValues(INITIAL_STATE);
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -36,50 +29,59 @@ const Form = ({ onNewSub }: FormProps) => {
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    setInputValues({
-      ...inputValues,
-      [e.target.name]: e.target.value,
+    const { name, value } = e.target;
+    dispatch({
+      type: "change_value",
+      payload: {
+        inputName: name,
+        inputValue: value,
+      },
     });
+    // setInputValues({
+    //   ...inputValues,
+    //   [e.target.name]: e.target.value,
+    // });
   };
 
   return (
     <div className="form__sub__container">
+      <h2>Forma parte del equipo</h2>
       <form onSubmit={handleSubmit} className="form__sub">
         <input
           onChange={handleChange}
           value={inputValues.nick}
           type="text"
           name="nick"
-          placeholder="nick"
+          placeholder="Nick"
         />
         <input
           onChange={handleChange}
-          value={inputValues.subMonths}
+          value={inputValues.experienceMonths}
           type="text"
-          name="subMonths"
-          placeholder="subMonths"
+          name="experienceMonths"
+          placeholder="Experience months"
         />
         <input
           onChange={handleChange}
           value={inputValues.avatar}
           type="text"
           name="avatar"
-          placeholder="avatar"
+          placeholder="Avatar"
         />
         <textarea
           onChange={handleChange}
           value={inputValues.description}
           name="description"
-          placeholder="description"
+          placeholder="Description"
         />
+        <button className="form__sub__button-create">Save new sub</button>
         <button
           onClick={handleClear}
           type="button"
-          className="form__sub__button"
+          className="form__sub__button-clear"
         >
           Clear
         </button>
-        <button className="form__sub__button">Save new sub</button>
       </form>
     </div>
   );

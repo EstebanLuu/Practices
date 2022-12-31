@@ -11,16 +11,11 @@ const List = ({ subs }: Props) => {
     <ul className="subs__ul">
       {subs.map((sub) => {
         return (
-          <li className="subs__li" key={sub.nick}>
-            <img className="subs__img" src={sub.avatar} alt={sub.avatar} />
-            <h4 className="subs__name">
-              {sub.nick} (<small>{sub.subMonths}</small>)
-            </h4>
-            <p className="subs__description">
-              {!sub.description
-                ? "This person has not description"
-                : sub.description}
-            </p>
+          <li className="subs__li" key={sub.name}>
+            <img className="subs__img" src={sub.image} alt={sub.image} />
+            <h4 className="subs__name">{sub.name}</h4>
+            <p className="subs__description">{sub.species}</p>
+            <p className="subs__description">{sub.gender}</p>
           </li>
         );
       })}
