@@ -8,8 +8,7 @@ interface FormProps {
 }
 
 const Form = ({ onNewSub }: FormProps) => {
-  // const [inputValues, setInputValues] =
-  //   useState<FormState["inputValues"]>(INITIAL_STATE);
+
 
   const [inputValues, dispatch] = useNewPerson();
 
@@ -49,28 +48,28 @@ const Form = ({ onNewSub }: FormProps) => {
       <form onSubmit={handleSubmit} className="form__sub">
         <input
           onChange={handleChange}
-          value={inputValues.nick}
+          value={inputValues.name}
           type="text"
           name="nick"
           placeholder="Nick"
         />
         <input
           onChange={handleChange}
-          value={inputValues.experienceMonths}
+          value={inputValues.status}
           type="text"
           name="experienceMonths"
           placeholder="Experience months"
         />
         <input
           onChange={handleChange}
-          value={inputValues.avatar}
+          value={inputValues.image}
           type="text"
           name="avatar"
           placeholder="Avatar"
         />
         <textarea
           onChange={handleChange}
-          value={inputValues.description}
+          value={inputValues.species}
           name="description"
           placeholder="Description"
         />

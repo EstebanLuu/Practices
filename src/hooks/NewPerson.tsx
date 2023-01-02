@@ -30,10 +30,11 @@ type FormReducerAction =
     };
 
 const INITIAL_STATE = {
-  nick: "",
-  experienceMonths: "",
-  avatar: "",
-  description: "",
+  name: "",
+  status: "",
+  species: "",
+  gender: "",
+  image: "",
 };
 
 interface FormState {

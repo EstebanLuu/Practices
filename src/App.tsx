@@ -26,7 +26,7 @@ function App() {
     useState<AppState["newSubsNumber"]>(0);
 
   useEffect(() => {
-    const fetchResponse = (): Promise<responseFromApi[]> => {
+    const fetchResponse = async (): Promise<Sub[]> => {
       return fetch("https://rickandmortyapi.com/api/character/").then((res) =>
         res.json()
       );
@@ -39,7 +39,6 @@ function App() {
     // };
 
     fetchResponse().then((data) => {
-      console.log(data);
       setSubs(data);
     });
   }, []);
