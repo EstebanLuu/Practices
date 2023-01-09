@@ -4,17 +4,6 @@ import { List } from "./components";
 import { Form } from "./components";
 import { responseFromApi, Sub } from "./types";
 
-const INITIAL_STATE = [
-  {
-    nick: "Nicolás",
-    experienceMonths: "10",
-    avatar:
-      " https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnNmHMc29UCVkhy9IHRMWu4rrfS2N9XuedSCtLflTIfuH-vA9IaPm8lL03MGrtutG-uoQ&usqp=CAU",
-    description: "Frontend Founder",
-  },
-  // https://i.pravatar.cc/150?u=dapelu
-];
-
 interface AppState {
   subs: Sub[];
   newSubsNumber: number;
@@ -26,21 +15,54 @@ function App() {
     useState<AppState["newSubsNumber"]>(0);
 
   useEffect(() => {
-    const fetchResponse = async (): Promise<Sub[]> => {
+    const fetchResponse = (): Promise<responseFromApi> => {
       return fetch("https://rickandmortyapi.com/api/character/").then((res) =>
         res.json()
       );
     };
 
-    // const mapFromApi = (apiResponse: responseFromApi): Sub[] => {return apiResponse.map(personaje => {
-    //   const
-    // })
+    const mapFromApi = (apiResponse: responseFromApi): Array<Sub> => {
+      return apiResponse.map((subFromApi) => {
+        const {
+          name: name,
+          status: status,
+          species: species,
+          gender: gender,
+          image: image,
+          created: created,
+          episode: episode,
+          id: id,
+          location: location,
+          origin: origin,
+          url: url,
+        } = subFromApi;
 
-    // };
+        return {
+          name,
+          status,
+          species,
+          gender,
+          image,
+          created,
+          episode,
+          id,
+          location,
+          origin,
+          url,
+        };
+      });
+    };
 
-    fetchResponse().then((data) => {
-      setSubs(data);
+    fetchResponse().then((apiSubs) => {
+      const subs = mapFromApi(apiSubs);
+      setSubs(subs);
     });
+    // fetch("https://rickandmortyapi.com/api/character/")
+    //   .then((res) => res.json())
+    //   .then((subs) => {
+    //     console.log(subs);
+    //     setSubs(subs);
+    //   });
   }, []);
 
   const handleNewSub = (newSub: Sub): void => {

@@ -4,6 +4,12 @@ export interface Sub {
   species: string;
   gender: string;
   image: string;
+  created: string;
+  episode: string;
+  id: number;
+  location: object;
+  origin: object;
+  url: string;
 }
 
 export type responseFromApi = Array<{
@@ -12,4 +18,11 @@ export type responseFromApi = Array<{
   species: string;
   gender: string;
   image: string;
+  created: string;
+  episode: string;
+  id: number;
+  location: object;
+  origin: object;
+  url: string;
+  results: Array;
 }>;
