@@ -22,47 +22,23 @@ function App() {
     };
 
     const mapFromApi = (apiResponse: responseFromApi): Array<Sub> => {
-      return apiResponse.map((subFromApi) => {
+      return apiResponse.results.map((subFromApi) => {
         const {
-          name: name,
-          status: status,
-          species: species,
-          gender: gender,
-          image: image,
-          created: created,
-          episode: episode,
-          id: id,
-          location: location,
-          origin: origin,
-          url: url,
+          name: nick,
+          image: avatar,
+          status: description,
+          gender: subMonths,
         } = subFromApi;
 
         return {
-          name,
-          status,
-          species,
-          gender,
-          image,
-          created,
-          episode,
-          id,
-          location,
-          origin,
-          url,
+          nick,
+          avatar,
+          description,
+          subMonths,
         };
       });
     };
-
-    fetchResponse().then((apiSubs) => {
-      const subs = mapFromApi(apiSubs);
-      setSubs(subs);
-    });
-    // fetch("https://rickandmortyapi.com/api/character/")
-    //   .then((res) => res.json())
-    //   .then((subs) => {
-    //     console.log(subs);
-    //     setSubs(subs);
-    //   });
+    fetchResponse().then(mapFromApi).then(setSubs);
   }, []);
 
   const handleNewSub = (newSub: Sub): void => {
@@ -72,9 +48,9 @@ function App() {
 
   return (
     <div className="App">
-      <h1 className="app__title">Equipo Typescript</h1>
+      <h1 className="app__title">Equipo de Rick & Morty</h1>
       <Form onNewSub={handleNewSub} />
-      New Sub: {newSubNumber}
+      <h4 style={{ color: "white" }}>Nuevos personajes: {newSubNumber}</h4>
       <List subs={subs} />
     </div>
   );

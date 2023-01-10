@@ -1,6 +1,6 @@
 import useNewPerson from "@/hooks/NewPerson";
 import { Sub } from "@/types";
-import React, { SetStateAction, useReducer, useState } from "react";
+import React from "react";
 import "./Form.scss";
 
 interface FormProps {
@@ -8,27 +8,19 @@ interface FormProps {
 }
 
 const Form = ({ onNewSub }: FormProps) => {
-
-
   const [inputValues, dispatch] = useNewPerson();
-
-  const handleClear = () => {
-    dispatch({
-      type: "clear",
-    });
-    // setInputValues(INITIAL_STATE);
-  };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     onNewSub(inputValues);
-    handleClear();
+    dispatch({ type: "clear" });
   };
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
+
     dispatch({
       type: "change_value",
       payload: {
@@ -36,50 +28,52 @@ const Form = ({ onNewSub }: FormProps) => {
         inputValue: value,
       },
     });
-    // setInputValues({
-    //   ...inputValues,
-    //   [e.target.name]: e.target.value,
-    // });
+  };
+
+  const handleClear = () => {
+    dispatch({
+      type: "clear",
+    });
   };
 
   return (
     <div className="form__sub__container">
-      <h2>Forma parte del equipo</h2>
+      <h2>Crea un nuevo personaje</h2>
       <form onSubmit={handleSubmit} className="form__sub">
         <input
           onChange={handleChange}
-          value={inputValues.name}
+          value={inputValues.nick}
           type="text"
           name="nick"
-          placeholder="Nick"
+          placeholder="Nombre"
         />
         <input
           onChange={handleChange}
-          value={inputValues.status}
+          value={inputValues.subMonths}
           type="text"
-          name="experienceMonths"
-          placeholder="Experience months"
+          name="subMonths"
+          placeholder="Status"
         />
         <input
           onChange={handleChange}
-          value={inputValues.image}
+          value={inputValues.avatar}
           type="text"
           name="avatar"
           placeholder="Avatar"
         />
-        <textarea
+        <input
           onChange={handleChange}
-          value={inputValues.species}
+          value={inputValues.description}
           name="description"
-          placeholder="Description"
+          placeholder="Genero"
         />
-        <button className="form__sub__button-create">Save new sub</button>
+        <button className="form__sub__button-create">Crear</button>
         <button
           onClick={handleClear}
           type="button"
           className="form__sub__button-clear"
         >
-          Clear
+          Borrar
         </button>
       </form>
     </div>

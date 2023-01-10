@@ -9,13 +9,13 @@ interface Props {
 const List = ({ subs }: Props) => {
   return (
     <ul className="subs__ul">
-      {subs.map((sub) => {
+      {subs.map((sub, i) => {
         return (
-          <li className="subs__li" key={sub.id}>
-            <img className="subs__img" src={sub.image} alt={sub.image} />
-            <h4 className="subs__name">{sub.name}</h4>
-            <p className="subs__description">{sub.species}</p>
-            <p className="subs__description">{sub.gender}</p>
+          <li className="subs__li" key={i}>
+            <img className="subs__img" src={sub.avatar} alt={sub.avatar} />
+            <h4 className="subs__name">{sub.nick}</h4>
+            <p className="subs__description">{sub.description}</p>
+            <p className="subs__description">{sub.subMonths}</p>
           </li>
         );
       })}
