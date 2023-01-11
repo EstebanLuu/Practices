@@ -3,6 +3,10 @@ export interface Sub {
   subMonths: string | number;
   avatar: string;
   description: string;
+  id?: string;
+  created?: string;
+  location?: string;
+  origin?: string;
 }
 
 export type responseFromApi = Array<{
@@ -10,5 +14,16 @@ export type responseFromApi = Array<{
   status: string;
   gender: string;
   image: string;
-  results: Array;
+  id: string;
+}>;
+
+export type CharacterResponse = Object<{
+  name: string;
+  status: string;
+  gender: string;
+  image: string;
+  created: string;
+  location: string;
+  origin: string;
+  id: string;
 }>;
