@@ -26,3 +26,5 @@ export const mapFromApi = (apiResponse: responseFromApi): Array<Sub> => {
     };
   });
 };
+
+// no se como hacer lo que quiero hacerrrr
