@@ -16,7 +16,6 @@ function Detail() {
   const { id } = useParams();
 
   const [apiResponse, setApiResponse] = useState([]);
-  console.log(apiResponse);
 
   const API = `https://rickandmortyapi.com/api/character/${id}`;
 
@@ -29,20 +28,20 @@ function Detail() {
   return (
     <div className="App">
       <h1 className="app__title">Detail from - {id}</h1>
-      <ul>
-        {apiResponse.map((character: Promise<>) => {
+      {/* <ul>
+        {apiResponse.map((character) => {
           <li className="subs__li" key={character.id}>
             <img
               className="subs__img"
               src={character.avatar}
               alt={character.avatar}
             />
-            <h4 className="subs__name">{character.nick}</h4>
+            <h4 className="subs__name">{character.name}</h4>
             <p className="subs__description">{character.description}</p>
             <p className="subs__description">{character.subMonths}</p>
           </li>;
         })}
-      </ul>
+      </ul> */}
     </div>
   );
 }
