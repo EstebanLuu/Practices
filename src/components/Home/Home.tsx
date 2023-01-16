@@ -11,7 +11,6 @@ interface AppState {
 }
 function Home() {
   const [subs, setSubs] = useState<AppState["subs"]>([]);
-  const { id } = useParams();
   const [newSubNumber, setNewSubsNumber] =
     useState<AppState["newSubsNumber"]>(0);
   useEffect(() => {
@@ -30,6 +29,8 @@ function Home() {
           <h1 className="app__title">Equipo de Rick & Morty</h1>
           <Form onNewSub={handleNewSub} />
           <h4 style={{ color: "white" }}>Nuevos personajes: {newSubNumber}</h4>
+
+          {/* USO DE LAS PROPS */}
           <List subs={subs} />
         </div>
       </Link>
