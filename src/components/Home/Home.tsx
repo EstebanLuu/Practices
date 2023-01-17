@@ -4,6 +4,7 @@ import { Form } from "../index";
 import { Sub } from "@/types";
 import { getAllPJ, mapFromApi } from "../Services";
 import { Link, useParams } from "react-router-dom";
+import HomeAprendiendo from "../Aprendiendo/Home";
 
 interface AppState {
   subs: Sub[];
@@ -24,16 +25,17 @@ function Home() {
 
   return (
     <>
-      <Link to={"/1"}>
-        <div className="App">
-          <h1 className="app__title">Equipo de Rick & Morty</h1>
-          <Form onNewSub={handleNewSub} />
-          <h4 style={{ color: "white" }}>Nuevos personajes: {newSubNumber}</h4>
+      <div className="App">
+        <h1 className="app__title">Equipo de Rick & Morty</h1>
+        <Form onNewSub={handleNewSub} />
+        <h4 style={{ color: "white" }}>Nuevos personajes: {newSubNumber}</h4>
 
-          {/* USO DE LAS PROPS */}
-          <List subs={subs} />
-        </div>
-      </Link>
+        <Link className="aprendiendo" to={"/aprendiendo"}>
+          <button>Typescript page "Aprendiendo"</button>
+        </Link>
+        {/* USO DE LAS PROPS */}
+        <List subs={subs} />
+      </div>
     </>
   );
 }

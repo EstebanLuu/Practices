@@ -45,3 +45,9 @@
   border-radius: 5px;
   font-size: 40px;
 }
+
+.aprendiendo {
+  position: absolute;
+  right: 20px;
+  top: 100px;
+}
