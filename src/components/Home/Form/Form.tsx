@@ -49,51 +49,53 @@ const Form = ({ onNewSub }: FormProps) => {
   };
 
   return (
-    <div className="form__sub__container">
-      <h2>Crea un nuevo personaje</h2>
-      <form onSubmit={handleSubmit} className="form__sub">
-        <input
-          // onChange={(e) => {
-          //   setInputValues({
-          //     ...inputValues,
-          //     [e.target.name]: e.target.value,
-          //   });
-          // }}
-          onChange={handleChange}
-          value={inputValues.nick}
-          type="text"
-          name="nick"
-          placeholder="Nombre"
-        />
-        <input
-          onChange={handleChange}
-          value={inputValues.subMonths}
-          type="text"
-          name="subMonths"
-          placeholder="Status"
-        />
-        <input
-          onChange={handleChange}
-          value={inputValues.avatar}
-          type="text"
-          name="avatar"
-          placeholder="Avatar"
-        />
-        <input
-          onChange={handleChange}
-          value={inputValues.description}
-          name="description"
-          placeholder="Genero"
-        />
-        <button className="form__sub__button-create">Crear</button>
-        <button
-          onClick={handleClear}
-          type="button"
-          className="form__sub__button-clear"
-        >
-          Borrar
-        </button>
-      </form>
+    <div className="allw form__container">
+      <div className="form__sub__container">
+        <h2>Crea un nuevo personaje</h2>
+        <form onSubmit={handleSubmit} className="form__sub">
+          <input
+            // onChange={(e) => {
+            //   setInputValues({
+            //     ...inputValues,
+            //     [e.target.name]: e.target.value,
+            //   });
+            // }}
+            onChange={handleChange}
+            value={inputValues.nick}
+            type="text"
+            name="nick"
+            placeholder="Nombre"
+          />
+          <input
+            onChange={handleChange}
+            value={inputValues.subMonths}
+            type="text"
+            name="subMonths"
+            placeholder="Status"
+          />
+          <input
+            onChange={handleChange}
+            value={inputValues.avatar}
+            type="text"
+            name="avatar"
+            placeholder="Avatar"
+          />
+          <input
+            onChange={handleChange}
+            value={inputValues.description}
+            name="description"
+            placeholder="Genero"
+          />
+          <button className="form__sub__button-create">Crear</button>
+          <button
+            onClick={handleClear}
+            type="button"
+            className="form__sub__button-clear"
+          >
+            Borrar
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

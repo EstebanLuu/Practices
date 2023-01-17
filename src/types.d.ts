@@ -1,3 +1,5 @@
+// RICK Y MORTY INTERFACES & TYPES
+
 export interface Sub {
   nick: string;
   subMonths: string | number;
@@ -27,3 +29,11 @@ export type CharacterResponse = Object<{
   origin: string;
   id: string;
 }>;
+
+// APRENDIENDO INTERFACES & TYPES
+
+export interface User {
+  uid: string;
+  name: string;
+  age?: number;
+}

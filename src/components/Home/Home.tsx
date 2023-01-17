@@ -28,10 +28,12 @@ function Home() {
       <div className="App">
         <h1 className="app__title">Equipo de Rick & Morty</h1>
         <Form onNewSub={handleNewSub} />
-        <h4 style={{ color: "white" }}>Nuevos personajes: {newSubNumber}</h4>
+        <h4 style={{ color: "white", textAlign: "center", margin: "10px" }}>
+          Nuevos personajes: {newSubNumber}
+        </h4>
 
         <Link className="aprendiendo" to={"/aprendiendo"}>
-          <button>Typescript page "Aprendiendo"</button>
+          <button>Other components</button>
         </Link>
         {/* USO DE LAS PROPS */}
         <List subs={subs} />

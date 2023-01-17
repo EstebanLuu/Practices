@@ -1,0 +1,17 @@
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  height: 50px;
+  align-items: center;
+}
+
+.buttonCounter {
+  padding: 8px;
+  font-size: 20px;
+  border-radius: 5px;
+  margin: 5px 10px;
+}
+
+.counter {
+  width: 100px;
+}

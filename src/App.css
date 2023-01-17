@@ -1,10 +1,3 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -44,10 +37,62 @@
   color: rgb(255, 255, 255);
   border-radius: 5px;
   font-size: 40px;
+  text-align: center;
+  padding: 10px;
+}
+
+.button {
+  color: white;
+  background: #000;
+  border: 1px solid transparent;
+  transition: 0.4s;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button:hover {
+  border: 1px solid white;
 }
 
 .aprendiendo {
   position: absolute;
   right: 20px;
   top: 100px;
+  font-size: 15px;
+}
+
+.section {
+  margin-bottom: 20px;
+  color: rgb(0, 0, 0);
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 25px;
+  padding: 10px;
+  border-top: 1px solid white;
+  text-align: center;
+}
+
+.allw {
+  width: 100%;
+}
+
+.df {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sigueAprendiendoContainer {
+  color: white;
+  font-size: 30px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: bold;
+  width: 100%;
+}
+.title {
+  padding: 10px 0;
+  color: white;
 }
