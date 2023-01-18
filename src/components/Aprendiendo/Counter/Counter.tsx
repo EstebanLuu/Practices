@@ -14,7 +14,7 @@ const Counter = () => {
 
   return (
     <div className="section">
-      <h3 className="title">Counter with useState</h3>
+      <h3 className="title">Counter</h3>
       <div className="buttonContainer">
         <button
           className="buttonCounter button"

@@ -15,8 +15,8 @@ const Usuario = () => {
   };
   return (
     <>
-      <div className="section">
-        <h3 className="title">Usuario: useState</h3>
+      <div className="section section__bottom">
+        <h3 className="title">Usuario</h3>
         <button className="button" onClick={handleLogin}>
           Login
         </button>
